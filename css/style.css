@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+#board {
+  width: 540px;
+  height: 540px;
+  background-color: bisque;
+
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  border: 3px solid rgb(228, 198, 101);
+  border-radius: 50px;
+}
+
+#board div {
+  width: 174px;
+  height: 174px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("../src/img/AgujerokritaLienzoCortado.png");
+  background-repeat: no-repeat;
+  background-size: 180px 70px;
+  background-position: 0% 80%;
+
+  /* border: 1px solid wheat; */
+}
+
+#board div img {
+  /* Burgos draw */
+  width: 100px;
+  height: 130px;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
