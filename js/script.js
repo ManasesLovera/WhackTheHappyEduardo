@@ -4,7 +4,8 @@ let score = 0;
 let gameOver = false;
 
 onload = function () {
-  document.getElementById("audioStart").play();
+  // La policy no me permite colocar el audio antes de que el usuario interactue con el dom
+
   setGame();
 };
 
@@ -16,12 +17,11 @@ function setGame() {
     let tile = document.createElement("div");
     tile.id = i.toString(); //poniendole un id a tile
     tile.addEventListener("click", selectTile);
-    console.log(tile.id);
 
     document.getElementById("board").appendChild(tile);
   }
 
-  setInterval(setEduardoSerio, 900);
+  setInterval(setEduardoSerio, 700);
   setInterval(setEduardo, 700);
 
   document.getElementById("board").style.cursor = "pointer";
@@ -101,6 +101,15 @@ function selectTile() {
 }
 
 function reloadPage() {
-  console.log("reload");
-  location.reload(true);
+  const audio = document.getElementById("audioStart");
+  audio
+    .play()
+    .then(() => {
+      setTimeout(() => {
+        location.reload(true);
+      }, 1000);
+    })
+    .catch(function (error) {
+      console.log("Audio playback failed: " + error);
+    });
 }
